@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f7fb;
+  --foreground: #172033;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --bubble-user: #1677ff;
+  --bubble-user-shadow: rgba(22, 119, 255, 0.24);
+  --bubble-assistant: #ffffff;
+  --line: rgba(58, 75, 110, 0.12);
+  --muted: #66728a;
+  --accent: #ff7a59;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background:
+    radial-gradient(circle at top left, rgba(120, 169, 255, 0.3), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 176, 145, 0.28), transparent 22%),
+    linear-gradient(180deg, #eef4ff 0%, #f7f8fc 58%, #fef7f4 100%);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(22, 119, 255, 0.18);
+}
+
+.glass-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 22px 60px rgba(40, 55, 88, 0.14);
+}
