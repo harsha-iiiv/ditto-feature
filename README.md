@@ -63,4 +63,4 @@ npm run dev
 
 ## Iteration plan
 
-See [`files/06-iteration-plan.md`](files/06-iteration-plan.md) for v2 (multi-agent split, real auth, real pool) and v3 (iMessage bridge via Sendblue).
+See [`docs/iteration-plan.md`](docs/iteration-plan.md) for v2 (multi-agent split, real auth, real pool) and v3 (iMessage bridge via Sendblue).
