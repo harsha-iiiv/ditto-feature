@@ -1,10 +1,59 @@
 # Ditto — Preference Intake → Match Reasoning → Date Plan
 
-**Live demo:** https://ditto-v1-i9n2cmxjx-harshas-projects-1ac46ddf.vercel.app
+**Live demo:** https://ditto-v1.vercel.app
 
 A conversational feature that replaces "browse + swipe" with a single AI-planned date proposal. The user describes who they want in natural language; Cupid extracts structured preferences, scores a pool of candidates, and proposes one concrete date. Every rejection feeds back into the next proposal.
 
-Built as a take-home feature for the Ditto internship assessment. Full planning context in [`files/`](files/).
+---
+
+## Try it
+
+Open **https://ditto-v1.vercel.app** and copy/paste the prompts below.
+
+### 1. Happy path
+
+Paste this into the chat:
+
+```
+someone who reads actual books, not self-help. bonus if they play an instrument. no finance bros please.
+```
+
+What happens:
+- Cupid extracts a structured preference brief from your free-form message
+- Scores 20 mock UC Berkeley profiles against your brief
+- Proposes one match, one venue, and one time
+- UI shows **Sounds good** and **Not for me**
+
+### 2. Rejection loop
+
+Click **Not for me**, then paste one of these as the reason:
+
+```
+too artsy. i want someone more intellectual and easier to talk to.
+```
+```
+i want someone more outdoorsy and less thesis-heavy.
+```
+```
+good on paper, but i want someone warmer and less intense.
+```
+
+What happens:
+- The proposal is marked rejected in Postgres
+- Rejection signals (`add_avoiding`, `add_looking_for`) are extracted and stored
+- Cupid proposes a different person — the rejected match is permanently excluded for this session
+
+### 3. More opening prompts to try
+
+```
+someone outdoorsy and grounded. not too online. ideally likes long walks and coffee.
+```
+```
+i want someone thoughtful, a little indie, probably a reader, but not overly intense.
+```
+```
+looking for someone ambitious and social, but not finance culture and not gym-maxing.
+```
 
 ---
 
